@@ -52,6 +52,21 @@ function Account() {
     }
   }
 
+  if(onCall === true){
+    return(
+      <div  style={{display:'flex', height:'165vh', border:'10px solid #3d5a80', justifyContent:'center', alignItems:'center', flexDirection:'column', backgroundImage:`url(https://coda.newjobs.com/api/imagesproxy/ms/seo-media/us/resume-images/software-engineer-entry-level.jpg)`, backgroundSize:'cover'}}>
+
+        {
+          onCall === true ?
+          <VideoCall id={cands[0].uid} handleLeave={handleLeave} />
+          :
+          <></>
+        }
+
+   </div>
+    )
+  }
+
 
 
   return (
