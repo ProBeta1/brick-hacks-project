@@ -48,7 +48,7 @@ function Home() {
     })
   }
 
-  return <StudentHome />
+  return <RecHome />
 
   if(isHere === true){
     return show;
