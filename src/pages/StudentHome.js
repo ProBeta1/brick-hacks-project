@@ -38,7 +38,7 @@ function StudentHome() {
           setOnCall(true);
         }
       })
-  },[]);
+  },[cid]);
 
   const handleLeave = () => {
     //unset
