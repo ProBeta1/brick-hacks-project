@@ -11,13 +11,23 @@ const reducers = combineReducers({
 
 const configureStore = () =>
   createStore(reducers, applyMiddleware(thunkMidleware))
-const settings = {
-  consumerKey: "8dwLOLNnnpdS0CtL80QOJA==",
-  consumerSecret: "KFPSIzyaoW2rZmluXgpo0NKIxlntmqzRpFhI7YfnS00=",
-  conferenceAlias: "Sample",
-}
 
-function VideoCall() {
+
+function VideoCall(props) {
+
+  const settings = {
+    consumerKey: "8dwLOLNnnpdS0CtL80QOJA==",
+    consumerSecret: "KFPSIzyaoW2rZmluXgpo0NKIxlntmqzRpFhI7YfnS00=",
+    conferenceAlias: props.id,
+  }
+
+  // const key = VoxeetSDK.conference.create({
+  //   alias: alias,
+  //   params: {
+  //     dolbyVoice: true,
+  //   },
+  // });
+
   return (
     <VoxeetProvider store={configureStore()}>
       <ConferenceRoom
@@ -25,6 +35,7 @@ function VideoCall() {
         consumerKey={settings.consumerKey}
         consumerSecret={settings.consumerSecret}
         conferenceAlias={settings.conferenceAlias}
+        handleOnLeave={props.handleLeave}
       />
     </VoxeetProvider>
   )
