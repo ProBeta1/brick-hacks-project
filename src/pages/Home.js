@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import React, {useState, useEffect} from 'react'
-import { auth, db } from "../firebase/Firebase";
+import { auth, db, ft } from "../firebase/Firebase";
 import RecHome from './RecHome';
 import StudentHome from './StudentHome';
 
@@ -12,52 +12,45 @@ const btn = {
 function Home() {
   const uid = auth().currentUser.uid;
   const [isHere, setIsHere] = useState(false);
-  let show = <div></div>
+  const [show, setShow] = useState(<div></div>)
 
   useEffect(() => {
-    let stat = db.ref('userType');
-    stat.on('value', (snapshot) => {
-      const data = snapshot.val().data;
-      if(data){
-        data.map(id => {
-          if(id === uid){
-            setIsHere(true);
-          }
-        })
+
+    ft.collection(uid).doc('type').get().then(item => {
+      if(item){
+        console.log("one more chance")
+        //setIsHere(true);
       }
-      
-    });
+    })
 
   },[]);
 
   const handleStudent = () => {
-    show = <StudentHome />
+    setShow(<StudentHome />);
     setIsHere(true);
-    db.ref('userType').set({
-      uid:'student'
-    })
+    ft.collection(uid).doc('type').set({
+      category:'student'
+    });
 
   }
 
   const handleRecruiter = () => {
-    show = <RecHome />
+    setShow(<RecHome />)
     setIsHere(true);
 
-    db.ref('userType').set({
-      uid:'recruiter'
-    })
+    ft.collection(uid).doc('type').set({
+      category:'recruiter'
+    });
   }
-
-  return <RecHome />
 
   if(isHere === true){
     return show;
   }
 
   return (
-    <div style={{height:'100vh', justifyContent:'center', alignItems:'center', display:'flex', backgroundColor:'gray'}}>
-        <Button  style={btn} onClick={handleStudent}>Student</Button>
-        <Button  style={btn} onClick={handleRecruiter}>Recruiter</Button>
+    <div style={{height:'100vh', justifyContent:'center', alignItems:'center', display:'flex', backgroundImage:`url(https://i.pinimg.com/originals/c9/97/81/c99781a0ab356681cb038f70b1df68f1.jpg)`}}>
+        <Button variant="contained"  style={btn} onClick={handleStudent}>Student</Button>
+        <Button variant="contained" style={btn} onClick={handleRecruiter}>Recruiter</Button>
     </div>
   )
 }

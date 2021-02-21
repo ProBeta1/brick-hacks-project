@@ -10,6 +10,7 @@ import { Button } from '@material-ui/core';
 import Jobs from "../student/Jobs";
 import Events from "../student/Events";
 import Employers from "../student/Employers";
+import Logout from '../components/Logout';
 
 const btn = {
   color:'white',
@@ -37,6 +38,9 @@ function StudentHome() {
             <Button style={btnCover}>              
               <Link style={btn} to="/">Events</Link>
             </Button>
+            <Button style={btnCover}>              
+              <Link style={btn} to="/logout">Logout</Link>
+            </Button>
         </nav>
 
         <Switch>
@@ -48,6 +52,9 @@ function StudentHome() {
           </Route>
           <Route path="/">
             <Events />
+          </Route>
+          <Route path="/logout">
+            <Logout />
           </Route>
         </Switch>
       </div>

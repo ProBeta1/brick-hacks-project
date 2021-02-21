@@ -52,7 +52,7 @@ function Events() {
             })
           }          
         </div>
-        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center', padding:'50px'}}>
           <h2>{events[curItem].name}</h2>
         </div>
     </div>

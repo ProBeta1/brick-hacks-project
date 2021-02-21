@@ -32,7 +32,7 @@ function Jobs() {
   }
 
   return (
-    <div>
+    <div style={{ border:'40px solid #3d5a80', justifyContent:'center', alignItems:'center',display:'flex', height:'80vh', flexDirection:'column'}}>
       <h2 style={{color:'#3d5a80', padding:'30px'}}>Event Happenning Now : Career Fair</h2>
 
       <div>
