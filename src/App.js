@@ -27,7 +27,7 @@ function App() {
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
 
-  if (true) {
+  if (!isSignedIn) {
     return (
       <div style={{justifyContent:'center', alignItems:'center', height:'100vh',backgroundImage: `url("https://media2.giphy.com/media/yoJC2zZXY7tQLU42ZO/200w.webp?cid=ecf05e47n27qk5wd2b3kkbyrg1xwvrx8ilc14os67q708tjh&rid=200w.webp")`,  backgroundSize: 'cover',
     }}>
