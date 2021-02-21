@@ -21,12 +21,7 @@ function VideoCall(props) {
     conferenceAlias: props.id,
   }
 
-  // const key = VoxeetSDK.conference.create({
-  //   alias: alias,
-  //   params: {
-  //     dolbyVoice: true,
-  //   },
-  // });
+  const handleIt = props.handleLeave || (() => {});
 
   return (
     <VoxeetProvider store={configureStore()}>
@@ -35,7 +30,7 @@ function VideoCall(props) {
         consumerKey={settings.consumerKey}
         consumerSecret={settings.consumerSecret}
         conferenceAlias={settings.conferenceAlias}
-        handleOnLeave={props.handleLeave}
+        handleOnLeave={handleIt}
       />
     </VoxeetProvider>
   )

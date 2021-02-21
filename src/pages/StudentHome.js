@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +11,8 @@ import Jobs from "../student/Jobs";
 import Events from "../student/Events";
 import Employers from "../student/Employers";
 import Logout from '../components/Logout';
+import { auth, ft } from '../firebase/Firebase';
+import VideoCall from '../components/VideoCall';
 
 const btn = {
   color:'white',
@@ -25,6 +27,35 @@ const btnCover = {
 
 
 function StudentHome() {
+  const cid = auth().currentUser.uid;
+  const [onCall, setOnCall] = useState(false);
+
+  useEffect(() => {
+    ft.collection('meeting').doc('dolby')
+      .onSnapshot((doc) => {
+        let p = doc.data();
+        if(p.uid === cid){
+          setOnCall(true);
+        }
+      })
+  },[]);
+
+  const handleLeave = () => {
+    //unset
+    ft.collection('meeting').doc('dolby').set({
+      uid:"la la la",
+    });
+    setOnCall(false);
+  }
+
+
+
+  if(onCall){
+    return(
+      <VideoCall id={cid} handleLeave={handleLeave}/>
+    )
+  }
+
   return (
     <Router>
       <div>

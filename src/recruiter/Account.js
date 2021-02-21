@@ -26,6 +26,9 @@ function Account() {
     //create a new meeting and invite the cand
     if(cands){
       setOnCall(true);
+      ft.collection('meeting').doc('dolby').set({
+        uid:cands[0].uid,
+      })
     }
   }
 
@@ -39,7 +42,13 @@ function Account() {
         let tid = idList;
         idList.shift();
         setIdList(tid);
+      });
+
+      //unset
+      ft.collection('meeting').doc('dolby').set({
+        uid:"la la la",
       })
+
     }
   }
 
