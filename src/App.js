@@ -27,12 +27,12 @@ function App() {
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
 
-  if (!isSignedIn) {
+  if (true) {
     return (
-      <div style={{justifyContent:'center', alignItems:'center', height:'100vh',backgroundImage: `url("https://cdn.rit.edu/images/news/2019-09/careerfairfall19.jpg")`,  backgroundSize: 'cover',
+      <div style={{justifyContent:'center', alignItems:'center', height:'100vh',backgroundImage: `url("https://media2.giphy.com/media/yoJC2zZXY7tQLU42ZO/200w.webp?cid=ecf05e47n27qk5wd2b3kkbyrg1xwvrx8ilc14os67q708tjh&rid=200w.webp")`,  backgroundSize: 'cover',
     }}>
         <Grid container justify="center" alignContent="center" style={{height:'100vh', flexDirection:'column'}}  >
-          <Grid item style={{color:'green', fontSize:'50px', fontWeight:'bold'}}>
+          <Grid item style={{color:'#ee6c4d', fontSize:'50px', fontWeight:'bold'}}>
             Lets Sign you up
           </Grid>
           <Grid item>

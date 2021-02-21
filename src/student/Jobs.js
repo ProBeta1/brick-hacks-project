@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import React, {useEffect, useState} from 'react'
-import { auth, db, ft } from '../firebase/Firebase';
+import { auth,  ft } from '../firebase/Firebase';
 import Waiting from './Waiting';
 
 const btn = {

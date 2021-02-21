@@ -1,11 +1,8 @@
 import { Button } from '@material-ui/core';
 import React, {useEffect, useState} from 'react'
 import VideoCall from '../components/VideoCall';
-import { auth, db, ft } from '../firebase/Firebase';
-const btn = {
-  margin:'10px',
-  padding:'10px'
-}
+import {  ft } from '../firebase/Firebase';
+
 
 function Account() {
   const [cands, setCands] = useState([]);

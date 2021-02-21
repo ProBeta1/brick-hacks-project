@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import React, {useState, useEffect} from 'react'
-import { auth, db, ft } from "../firebase/Firebase";
+import { auth,  ft } from "../firebase/Firebase";
 import RecHome from './RecHome';
 import StudentHome from './StudentHome';
 
@@ -23,7 +23,7 @@ function Home() {
       }
     })
 
-  },[]);
+  },[uid]);
 
   const handleStudent = () => {
     setShow(<StudentHome />);

@@ -20,24 +20,34 @@ function Events() {
       name:"Feb 23: Career Fair",
       time:"today ",
       description:"The ultimate one"
-    },
-    {
-      name:"Feb 24: Career Fair",
-      time:"right now ",
-      description:"The ultimate one"
-    },
-    {
-      name:"Feb 25: Career Fair"
-    },{
-      name:"Feb 26: Career Fair"
-    },{
-      name:"Feb 27: Career Fair"
-    },
-  ]);
+    }]);
 
   const handleClick= (id) => {
     setCurItem(id);
   }
+
+  useEffect(() => {
+    let temp = [
+      {
+        name:"Feb 23: Career Fair",
+        time:"today ",
+        description:"The ultimate one"
+      },
+      {
+        name:"Feb 24: Career Fair",
+        time:"right now ",
+        description:"The ultimate one"
+      },
+      {
+        name:"Feb 25: Career Fair"
+      },{
+        name:"Feb 26: Career Fair"
+      },{
+        name:"Feb 27: Career Fair"
+      },
+    ];
+    setEvents(temp);
+  },[])
 
 
   return (
